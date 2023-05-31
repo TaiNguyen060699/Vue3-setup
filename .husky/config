@@ -1,0 +1,17 @@
+// commit-msg
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx commitlint --edit $1
+
+// pre-commit
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm lint-staged
+
+// pre-push
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run test
